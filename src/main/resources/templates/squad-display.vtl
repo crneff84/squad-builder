@@ -1,0 +1,43 @@
+<h3>$squad.getName()</h3>
+
+<h4>Attack: $squad.getAttack()</h4>
+<h4>Defense: $squad.getDefense()</h4>
+<h4>Personality: $squad.getPersonality()</h4>
+
+#if($squad.getHeroCount() > 0)
+  <ul>
+    #foreach($hero in $squad.getHeroes())
+      #if($hero.getName() != "")
+        <li><a href="/hero/$squad.getId()/$hero.getId()">$hero.getName()</a></li>
+      #end
+    #end
+  </ul>
+#else
+  <p>No squads yet!</p>
+#end
+
+#if ($squad.getHeroCount() < 3)
+  <h4>Add Hero: </h4>
+  <form action="/new-hero" method="post">
+    <input type="hidden" id="squadId" name="squadId" value="$squad.getId()">
+    <div class="form-control">
+      <label for="hero-name">Enter a name: </label>
+      <input type="text" id="hero-name" name="hero-name">
+    </div>
+    <div class="form-control">
+      <label for="hero-attack">Enter an attack rating: </label>
+      <input type="number" id="hero-attack" name="hero-attack">
+    </div>
+    <div class="form-control">
+      <label for="hero-defense">Enter an defense rating: </label>
+      <input type="number" id="hero-defense" name="hero-defense">
+    </div>
+    <div class="form-control">
+      <label for="hero-personality">Enter an personality rating: </label>
+      <input type="number" id="hero-personality" name="hero-personality">
+    </div>
+    <button type="submit" class="btn btn-success">New Hero!</button>
+  </form>
+#end
+
+<a href="/">Home</a>

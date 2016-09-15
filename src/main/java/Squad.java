@@ -8,7 +8,7 @@ public class Squad {
   private int mSquadPersonality;
   private int mId;
   private int mHeroCount;
-  private Hero[] mHeroList ;
+  private Hero[] mHeroList;
   private static List<Squad> instances = new ArrayList<Squad>();
 
   public Squad (String squadName){
@@ -17,6 +17,9 @@ public class Squad {
     instances.add(this);
     mId = instances.size();
     mHeroList = new Hero[3];
+    for (int i = 0; i < 3; i++) {
+      mHeroList[i] = new Hero("", 0, 0, 0);
+    }
   }
 
   public String getName() {
@@ -39,8 +42,16 @@ public class Squad {
     return mId;
   }
 
+  public Hero[] getHeroes() {
+    return mHeroList;
+  }
+
+  public int getHeroCount() {
+    return mHeroCount;
+  }
+
   public boolean addHero(Hero _hero) {
-    if (mHeroCount < 3) {
+    if (mHeroCount < 3 && _hero.getName() != "") {
       mHeroList[mHeroCount] = _hero;
       mHeroCount++;
       mSquadAttack += _hero.getAttack();

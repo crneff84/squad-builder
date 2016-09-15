@@ -1,0 +1,18 @@
+<h3>Squads</h3>
+
+#if($squads.size() > 0)
+  <ul>
+    #foreach($squad in $squads)
+      <li><a href="/squad/$squad.getId()">$squad.getName()</a></li>
+    #end
+  </ul>
+#else
+  <p>No squads yet!</p>
+#end
+
+<h3>Make new squad</h3>
+<form action="/new-squad" method="post">
+  <label for="squad-name">Enter a squad name: </label>
+  <input type="text" id="squad-name" name="squad-name">
+  <button type="submit" class="btn btn-primary">New Squad!</button>
+</form>
