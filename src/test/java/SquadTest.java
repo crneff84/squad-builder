@@ -70,4 +70,16 @@ public class SquadTest{
     assertEquals(testObj2, Squad.find(2));
   }
 
+  @Test
+  public void findHero_addsHeroObjectToSquad_boolean() {
+    Squad testObj = new Squad("KOTOR");
+    Hero revan = new Hero("revan", 12,12,12);
+    Hero bastilla = new Hero("bastilla", 12,12,12);
+    testObj.addHero(revan);
+    testObj.addHero(bastilla);
+    assertEquals("getAttack test", 24, testObj.getAttack());
+    assertEquals("findHero test1", revan, testObj.findHero(1));
+    assertEquals("findHero test2", bastilla.getAttack(), testObj.findHero(bastilla.getId()).getAttack());
+  }
+
 }

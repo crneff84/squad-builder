@@ -8,7 +8,7 @@ public class Squad {
   private int mSquadPersonality;
   private int mId;
   private int mHeroCount;
-  private Hero[] mHeroList = new Hero[3];
+  private Hero[] mHeroList ;
   private static List<Squad> instances = new ArrayList<Squad>();
 
   public Squad (String squadName){
@@ -16,6 +16,7 @@ public class Squad {
     mHeroCount = 0;
     instances.add(this);
     mId = instances.size();
+    mHeroList = new Hero[3];
   }
 
   public String getName() {
@@ -48,6 +49,14 @@ public class Squad {
       return true;
     } else {
       return false;
+    }
+  }
+
+  public Hero findHero(int _heroIndex) {
+    try {
+      return mHeroList[_heroIndex-1];
+    } catch (IndexOutOfBoundsException exception) {
+      return null;
     }
   }
 
