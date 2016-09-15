@@ -41,7 +41,7 @@ public class App {
       String heroName = request.queryParams("hero-name");
       String attackCheck = request.queryParams("hero-attack");
       String defenseCheck = request.queryParams("hero-defense");
-      String personalityCheck = request.queryParams("hero-attack");
+      String personalityCheck = request.queryParams("hero-personality");
       if (!attackCheck.equals("") && !defenseCheck.equals("") && !personalityCheck.equals("")) {
         int heroAttack = Integer.parseInt(attackCheck);
         int heroDefense = Integer.parseInt(defenseCheck);

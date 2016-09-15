@@ -1,0 +1,15 @@
+body {
+  font-family: 'Bangers', cursive;
+  background-image: url(/images/desert.jpeg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: #BE9057;
+  margin-left: 50px;
+  font-size: 14pt;
+}
+
+.jumbotron {
+  text-align: center;
+  background-image: url(/images/desert.jpeg);
+  background-size: 100%;
+}
